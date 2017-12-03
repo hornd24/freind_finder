@@ -45,7 +45,7 @@
                 <label for="role">Please Enter A Photo Link</label>
                 <br>
                 <label  style='color: red' for="role">Requierd</label>
-                <input  type="file" accept=".jpg,.png" class="form-control" id="photo">
+                <input autocomplete="url:https://pbs.twimg.com/profile_images/843848922598707200/jlx9RNLO_400x400.jpg" type="text"  class="form-control" id="photo">
               </div>
               
               <div class="form-group">
@@ -217,6 +217,14 @@
         </div>
       </div>
     </div>
+    <div class="modal fade bs-example-modal-sm" id='freinds' tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+        <div class="modal-dialog modal-sm" role="document">
+          <div class="modal-content">
+            <h3>Calculating Results</h3>
+             
+          </div>
+        </div>
+      </div>
 
   <script type="text/javascript">
 
@@ -230,22 +238,36 @@ var config = {
     for (var selector in config) {
       $(selector).chosen(config[selector]);
     }
+
     // Question: What does this code do?
     $("#submit").on("click", function (event) {
+      var q1 =parseFloat($("#q1").val()); 
+       var q2 =parseFloat($("#q2").val());  
+       var q3 =parseFloat($("#q3").val()); 
+       var q4 =parseFloat($("#q4").val()); 
+       var q5 =parseFloat($("#q5").val());
+       var q6 =parseFloat($("#q6").val());
+       var q7 =parseFloat($("#q7").val());
+       var q8 =parseFloat($("#q8").val());
+       var q9 =parseFloat($("#q9").val());
+       var q10 =parseFloat($("#q10").val());
+    
       event.preventDefault();
-      var answers={ name: $('#name').val(),
-      photo:$('#photo').val(),
-      questions:[$('#q1').val(),$('#q2').val(),$('#q3').val(),$('#q4').val(),$('#q5').val(),$('#q6').val(),$('#q7').val(),$('#q8').val(),$('#q9').val(),$('#q10').val(),]
-
-      };
-      
+      var answers = {
+        name: $("#name").val(),
+        photo: $("#photo").val(),
+        questions: [q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, ]
+      }
+      console.log(q1)
+      console.log(answers)
       var currentURL = window.location.origin;
-      
+    
      
      $.post("/api/add", answers)
        .done(function (data) {
          console.log(data);
          $('#compute').modal('show')
+         setInterval(function(){ $('#compute').modal('hide')}, 3000)
         //  console.log(friendsList)
        });
        
