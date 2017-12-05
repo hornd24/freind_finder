@@ -208,6 +208,16 @@
       </div>
     </div>
   </div>
+  <div class="modal fade bs-example-modal-sm" id='freinds'  role="dialog" aria-labelledby="mySmallModalLabel">
+      <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+          <h3>Your Perfect Friend Is:</h3>
+          <h5 id='freindName'></h5>
+           <img id='freindPhoto'>
+        </div>
+      </div>
+    </div>
+
 
   <div class="modal fade bs-example-modal-sm" id='compute' tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
       <div class="modal-dialog modal-sm" role="document">
@@ -217,15 +227,8 @@
         </div>
       </div>
     </div>
-    <div class="modal fade bs-example-modal-sm" id='freinds' tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-        <div class="modal-dialog modal-sm" role="document">
-          <div class="modal-content">
-            <h3>NOAH LOVES DICK</h3>
-             <img src="https://media1.tenor.com/images/33dc0afd4a5cf9cfcf0ea3140cb012a9/tenor.gif?itemid=7197114">
-          </div>
-        </div>
-      </div>
-
+    
+  
   <script type="text/javascript">
 
 var config = {
@@ -265,12 +268,15 @@ var config = {
      
      $.post("/api/add", answers)
        .done(function (data) {
-         console.log(data);
+        
          $('#compute').modal('show')
-         setInterval(function(){ $('#compute').modal('hide') }, 4000)
-         setInterval(function(){ $('#freinds').modal('show')}, 4000)
-         setInterval(function(){ $('#freinds').modal('hide')}, 7000)
-        //  console.log(friendsList)
+         setTimeout(function(){ $('#compute').modal('hide') }, 4000)
+          setTimeout(function(){ $('#freinds').modal('show')}, 4000)
+          
+          $.post(currentURL + "/api/add", answers, function(data){
+            $('#freindName').html(data.perfectName);
+            $('#freindPhoto').attr('src',data.perfectPhoto);
+          })
        });
        
      });
