@@ -132,7 +132,7 @@ var perfectPhoto = '';
 // compare.splice('');
 
 // console.log(testing);
-
+console.log('hi')
     res.json({perfectName,perfectPhoto});
 });
 
