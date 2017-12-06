@@ -206,14 +206,21 @@
         </div>
 
       </div>
-    </div>
+    </div>    
   </div>
   <div class="modal fade bs-example-modal-sm" id='freinds'  role="dialog" aria-labelledby="mySmallModalLabel">
       <div class="modal-dialog modal-sm" role="document">
         <div class="modal-content">
+
           <h3>Your Perfect Friend Is:</h3>
-          <h5 id='freindName'></h5>
-           <img id='freindPhoto'>
+          <div class="row">
+              <div class="col-md-3"><h5 id='freindName'></h5></div>
+              <div class="col-md-3"><img  id='freindPhoto'></div>
+
+              
+            </div>
+          
+           
         </div>
       </div>
     </div>
@@ -265,13 +272,9 @@ var config = {
       console.log(answers)
       var currentURL = window.location.origin;
     
+     var newFriendNam=answers.name;
+     var newUrl=answers.photo;
      
-     
-        
-   
-               //  $('#compute').modal('show')
-        //  setTimeout(function(){ $('#compute').modal('hide') }, 4000)
-        //   setTimeout(function(){ $('#freinds').modal('show')}, 4000)
           $.post(currentURL + "/api/add", answers, function(data){
             $('#compute').modal('show')
          setTimeout(function(){ $('#compute').modal('hide') }, 4000)
