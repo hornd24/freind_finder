@@ -70,6 +70,7 @@ var perfectPhoto = '';
         // console.log(newfreind[i].questions[i])
         if (answers.name == newfreind[i].name) {
             var avdata = newfreind[i].questions.map(Number);
+            newfreind.splice('')
   
             // console.log(test)
                  }         //   console.log(friendsList[0].questions)
