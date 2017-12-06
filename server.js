@@ -17,9 +17,8 @@ app.use(bodyParser.json());
 //     res.sendFile(path.join(__dirname, "public/index.html"));
 // });
 routs(app);
-app.get("/survey", function (req, res) {
-    res.sendFile(path.join(__dirname, "public/survey.html"));
-});
+
+
 var compareNum=[];
 var compare=[];
 var newfreind = [];
@@ -40,7 +39,7 @@ var friendsList = [{
     },
     {name: 'Butters Stotch',
     photo: 'https://vignette.wikia.nocookie.net/southpark/images/0/06/ButtersStotch.png/revision/latest/scale-to-width-down/310?cb=20170322004353',
-    questions: [5, 5, 5, 3, 2, 4, 5, 3, 4, 5]
+    questions:  [5, 5, 5, 5, 3, 2, 4, 5, 3, 2]
         
     },
 ]
@@ -60,6 +59,7 @@ function Comparing(name,link,sum){
 }
 
     newfreind.push(answers);
+   
 // console.log(friendsList[1]);
 
 var perfectName = '';
@@ -70,18 +70,19 @@ var perfectPhoto = '';
         // console.log(newfreind[i].questions[i])
         if (answers.name == newfreind[i].name) {
             var avdata = newfreind[i].questions.map(Number);
-   
+  
             // console.log(test)
                  }         //   console.log(friendsList[0].questions)
             for (b = 0; b < friendsList.length; b++) {
                 // console.log(b)
             //   console.log(  friendsList[b])
+            sum = 0;
                 for (j = 0; j < friendsList[b].questions.length; j++) {
-                    sum = 0;
+                   
                 
                     //    console.log(friendsList[j].questions)
                     sum +=Math.abs(avdata[j] -friendsList[b].questions[j]);
-                   
+                //    console.log(avdata[j])
                     // console.log(typeof sum)
                     // console.log(typeof friendsList[i].questions);
                     // console.log(typeof test[0])
@@ -100,9 +101,24 @@ var perfectPhoto = '';
             }
             
         }
-    
-    console.log(compare)
-   
+        console.log(compare)
+        
+        var match=null;
+        
+        for(var i=0;i<compare.length;i++){
+            if(!match || match.math> compare[i].math){
+            // if(min>compare[i].math){
+                // min=compare[i].math;
+                match=compare[i]
+
+
+            }
+        }
+        // console.log(match)
+        perfectName=match.freindNam;
+        perfectPhoto=match.urlLink
+    //    console.log(compare)
+  
 // for(var i=0;i<compare.length;i++){
 //    compareNum.push(compare[i].math);
 

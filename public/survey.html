@@ -266,18 +266,21 @@ var config = {
       var currentURL = window.location.origin;
     
      
-     $.post("/api/add", answers)
-       .done(function (data) {
+     
         
-         $('#compute').modal('show')
+   
+               //  $('#compute').modal('show')
+        //  setTimeout(function(){ $('#compute').modal('hide') }, 4000)
+        //   setTimeout(function(){ $('#freinds').modal('show')}, 4000)
+          $.post(currentURL + "/api/add", answers, function(data){
+            $('#compute').modal('show')
          setTimeout(function(){ $('#compute').modal('hide') }, 4000)
           setTimeout(function(){ $('#freinds').modal('show')}, 4000)
           
-          $.post(currentURL + "/api/add", answers, function(data){
             $('#freindName').html(data.perfectName);
             $('#freindPhoto').attr('src',data.perfectPhoto);
           })
-       });
+      
        
      });
   </script>
