@@ -19,28 +19,30 @@ app.use(bodyParser.json());
 routs(app);
 
 
-var compareNum=[];
-var compare=[];
+var compareNum = [];
+var compare = [];
 var newfreind = [];
 var friendsList = [{
         name: 'Eric Cartman',
         photo: 'https://vignette.wikia.nocookie.net/southpark/images/5/58/Cartman-no-hat-0.png/revision/latest/scale-to-width-down/310?cb=20170725145528',
         questions: [2, 5, 4, 3, 1, 3, 5, 4, 5, 1]
     },
-    {name: 'Stan Marsh',
-    photo: 'https://vignette4.wikia.nocookie.net/southpark/images/2/2a/1105_chasedbyrabbits.JPG/revision/latest?cb=20070901123200',
-    questions: [5, 3, 4, 3, 4, 3, 5, 3, 5, 4]
-       
+    {
+        name: 'Stan Marsh',
+        photo: 'https://vignette4.wikia.nocookie.net/southpark/images/2/2a/1105_chasedbyrabbits.JPG/revision/latest?cb=20070901123200',
+        questions: [5, 3, 4, 3, 4, 3, 5, 3, 5, 4]
+
     }, {
         name: 'Randy Marsh',
         photo: 'https://static.comicvine.com/uploads/original/11125/111254686/5113188-0906127496-CHKON.jpg',
         questions: [5, 5, 5, 3, 2, 4, 5, 3, 4, 5]
 
     },
-    {name: 'Butters Stotch',
-    photo: 'https://vignette.wikia.nocookie.net/southpark/images/0/06/ButtersStotch.png/revision/latest/scale-to-width-down/310?cb=20170322004353',
-    questions:  [5, 5, 5, 5, 3, 2, 4, 5, 3, 2]
-        
+    {
+        name: 'Butters Stotch',
+        photo: 'https://vignette.wikia.nocookie.net/southpark/images/0/06/ButtersStotch.png/revision/latest/scale-to-width-down/310?cb=20170322004353',
+        questions: [5, 5, 5, 5, 3, 2, 4, 5, 3, 2]
+
     },
 ]
 // [5, 5, 5, 5, 3, 2, 4, 5, 3, 2, 5]
@@ -51,19 +53,20 @@ app.post("/api/add", function (req, res) {
     // console.log(answers)
 
 
-console.log(friendsList.length)
-function Comparing(name,link,sum){
-    this.freindNam=name;
-    this.urlLink=link;
-    this.math=sum;
-}
+    console.log(friendsList.length)
+
+    function Comparing(name, link, sum) {
+        this.freindNam = name;
+        this.urlLink = link;
+        this.math = sum;
+    }
 
     newfreind.push(answers);
-   
-// console.log(friendsList[1]);
 
-var perfectName = '';
-var perfectPhoto = '';
+    // console.log(friendsList[1]);
+
+    var perfectName = '';
+    var perfectPhoto = '';
 
 
     for (i = 0; i < newfreind.length; i++) {
@@ -71,75 +74,96 @@ var perfectPhoto = '';
         if (answers.name == newfreind[i].name) {
             var avdata = newfreind[i].questions.map(Number);
             newfreind.splice('')
-  
+
             // console.log(test)
-                 }         //   console.log(friendsList[0].questions)
-            for (b = 0; b < friendsList.length; b++) {
-                // console.log(b)
+        } //   console.log(friendsList[0].questions)
+        for (b = 0; b < friendsList.length; b++) {
+            // console.log(b)
             //   console.log(  friendsList[b])
             sum = 0;
-                for (j = 0; j < friendsList[b].questions.length; j++) {
-                   
-                
-                    //    console.log(friendsList[j].questions)
-                    sum +=Math.abs(avdata[j] -friendsList[b].questions[j]);
+            for (j = 0; j < friendsList[b].questions.length; j++) {
+
+
+                //    console.log(friendsList[j].questions)
+                sum += Math.abs(avdata[j] - friendsList[b].questions[j]);
                 //    console.log(avdata[j])
-                    // console.log(typeof sum)
-                    // console.log(typeof friendsList[i].questions);
-                    // console.log(typeof test[0])
-                   
-                }
-                // console.log(friendsList)
-              
-                
-          var  comparing= new Comparing(friendsList[b].name,friendsList[b].photo,sum)
+                // console.log(typeof sum)
+                // console.log(typeof friendsList[i].questions);
+                // console.log(typeof test[0])
 
-          compare.push(comparing);    
-             
-         
-
-                
             }
-            
+            // console.log(friendsList)
+
+
+            var comparing = new Comparing(friendsList[b].name, friendsList[b].photo, sum)
+
+            compare.push(comparing);
+
+
+
+
         }
-        console.log(compare)
-        
-        var match=null;
-        
-        for(var i=0;i<compare.length;i++){
-            if(!match || match.math> compare[i].math){
+
+    }
+    console.log(compare)
+
+    var match = null;
+
+    for (var i = 0; i < compare.length; i++) {
+        if (!match || match.math > compare[i].math) {
             // if(min>compare[i].math){
-                // min=compare[i].math;
-                match=compare[i]
+            // min=compare[i].math;
+            match = compare[i]
 
 
-            }
         }
-        compare.splice('')
-        sum=0;
+    }
+    compare.splice('')
+    
 
-        console.log(match)
-        perfectName=match.freindNam;
-        perfectPhoto=match.urlLink
+
+    perfectName = match.freindNam;
+    perfectPhoto = match.urlLink
     //    console.log(compare)
-  
-// for(var i=0;i<compare.length;i++){
-//    compareNum.push(compare[i].math);
 
-// var test =Math.min(compareNum[i])
+    // for(var i=0;i<compare.length;i++){
+    //    compareNum.push(compare[i].math);
 
-// }
-// // var testing= Math.min(compareNum);
-// console.log(compareNum)
-// console.log(test)
+    // var test =Math.min(compareNum[i])
 
-// compare.splice('');
+    // }
+    // // var testing= Math.min(compareNum);
+    // console.log(compareNum)
+    // console.log(test)
 
-// console.log(testing);
-console.log('hi')
-    res.json({perfectName,perfectPhoto});
+    // compare.splice('');
+
+    // console.log(testing);
+    console.log('hi')
+    res.json({
+        perfectName,
+        perfectPhoto
+    });
 });
 
+
+app.post("/api/noah", function (req, res) {
+    // req.body hosts is equal to the JSON post sent from the user
+    // This works because of our body-parser middleware
+    var answers = req.body;
+    var questionList = answers.questions.map(Number);
+    console.log(questionList)
+    freindAdd = {
+        name: answers.name,
+        photo: answers.photo,
+        questions: questionList
+
+    };
+    console.log(freindAdd)
+    friendsList.push(freindAdd);
+    console.log(friendsList);
+    res.json({freindAdd})
+});
 app.listen(PORT, function () {
     console.log("App listening on PORT " + PORT);
 });

@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Friend Survey</title>
+  <title>Noah's ADD Page</title>
   <!-- Latest compiled and minified CSS & JS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <script src="https://code.jquery.com/jquery.js"></script>
@@ -54,7 +54,7 @@
                 <select data-placeholder='' class="chosen-select" name="question1" id="q1">
           
                   <option value=""></option>
-                  <option value="1">1(Strongly Disagre)</option>
+                  <option value="1">1(Strongly Disagree)</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
                   <option value="4">4</option>
@@ -69,7 +69,7 @@
                 <select data-placeholder='' class="chosen-select" name="question2" id="q2">
           
                   <option value=""></option>
-                  <option value="1">1(Strongly Disagre)</option>
+                  <option value="1">1(Strongly Disagree)</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
                   <option value="4">4</option>
@@ -84,7 +84,7 @@
                 <select data-placeholder='' class="chosen-select" name="question3" id="q3">
           
                   <option value=""></option>
-                  <option value="1">1(Strongly Disagre)</option>
+                  <option value="1">1(Strongly Disagree)</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
                   <option value="4">4</option>
@@ -99,7 +99,7 @@
                 <select data-placeholder='' class="chosen-select" name="question4" id="q4">
                   
                   <option value=""></option>
-                  <option value="1">1(Strongly Disagre)</option>
+                  <option value="1">1(Strongly Disagree)</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
                   <option value="4">4</option>
@@ -114,7 +114,7 @@
                 <select data-placeholder='' class="chosen-select" name="question5" id="q5">
           
                   <option value=""></option>
-                  <option value="1">1(Strongly Disagre)</option>
+                  <option value="1">1(Strongly Disagree)</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
                   <option value="4">4</option>
@@ -129,7 +129,7 @@
                 <select data-placeholder='' class="chosen-select" name="question6" id="q6">
           
                   <option value=""></option>
-                  <option value="1">1(Strongly Disagre)</option>
+                  <option value="1">1(Strongly Disagree)</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
                   <option value="4">4</option>
@@ -143,7 +143,7 @@
                 <select data-placeholder='' class="chosen-select" name="question7" id="q7">
           
                   <option value=""></option>
-                  <option value="1">1(Strongly Disagre)</option>
+                  <option value="1">1(Strongly Disagree)</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
                   <option value="4">4</option>
@@ -157,7 +157,7 @@
                 <select data-placeholder='' class="chosen-select" name="question8" id="q8">
           
                   <option value=""></option>
-                  <option value="1">1(Strongly Disagre)</option>
+                  <option value="1">1(Strongly Disagree)</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
                   <option value="4">4</option>
@@ -172,7 +172,7 @@
                 <select data-placeholder='' class="chosen-select" name="question9" id="q9">
           
                   <option value=""></option>
-                  <option value="1">1(Strongly Disagre)</option>
+                  <option value="1">1(Strongly Disagree)</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
                   <option value="4">4</option>
@@ -187,7 +187,7 @@
                 <select data-placeholder='' class="chosen-select" name="question10" id="q10">
           
                   <option value=""></option>
-                  <option value="1">1(Strongly Disagre)</option>
+                  <option value="1">1(Strongly Disagree)</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
                   <option value="4">4</option>
@@ -212,10 +212,11 @@
       <div class="modal-dialog modal-sm" role="document">
         <div class="modal-content">
 
-          <h3>Your Perfect Friend Is:</h3>
+          <h3></h3>
           <div class="row">
+           <h1 id='modal'></h1>
               <div class="col-md-3"><h5 id='freindName'></h5></div>
-              <div class="col-md-3"><img  style="width:400px" id='freindPhoto'></div>
+              <div class="col-md-3"><img style="width:400px" id='freindPhoto'></div>
 
               
             </div>
@@ -229,7 +230,7 @@
   <div class="modal fade bs-example-modal-sm" id='compute' tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
       <div class="modal-dialog modal-sm" role="document">
         <div class="modal-content">
-          <h3>Calculating Results</h3>
+          <h3>Creating New Freind</h3>
           <img   src="https://media.giphy.com/media/pbviPVVW08jD2/giphy.gif"  >
         </div>
       </div>
@@ -275,14 +276,14 @@ var config = {
      var newFriendNam=answers.name;
      var newUrl=answers.photo;
      
-          $.post(currentURL + "/api/add", answers, function(data){
-            $('#compute').modal('show')
-         setTimeout(function(){ $('#compute').modal('hide') }, 4000)
-          setTimeout(function(){ $('#freinds').modal('show')}, 4000)
-          
-            $('#freindName').html(data.perfectName);
-            $('#freindPhoto').attr('src',data.perfectPhoto);
-          })
+     $.post(currentURL + "/api/noah", answers, function(data){
+      $('#compute').modal('show')
+   setTimeout(function(){ $('#compute').modal('hide') }, 4000)
+    setTimeout(function(){ $('#freinds').modal('show')}, 4000)
+    
+      $('#freindName').html(data.freindAdd.name);
+      $('#freindPhoto').attr('src',data.freindAdd.photo);
+    })
       
        
      });
