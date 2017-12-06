@@ -199,7 +199,7 @@
             <br>
             <div class="text-right">
                 <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit"><i class="fa fa-check-circle" aria-hidden="true"></i><span class="glyphicon glyphicon-ok"></span>
-                  Find The Perfect Freind</button>
+                  ADD TO FREINDS LIST</button>
               
             </div>
           </div>
@@ -214,11 +214,12 @@
 
           <h3></h3>
           <div class="row">
-           <h1 id='modal'></h1>
+            <h1 id='modal'>  The New Created Freind is:</h1>
+
               <div class="col-md-3"><h5 id='freindName'></h5></div>
               <div class="col-md-3"><img style="width:400px" id='freindPhoto'></div>
 
-              
+              <footer id='foot'>  </footer>
             </div>
           
            
@@ -283,6 +284,7 @@ var config = {
     
       $('#freindName').html(data.freindAdd.name);
       $('#freindPhoto').attr('src',data.freindAdd.photo);
+      $('#foot').append('<h3>'+data.freindAdd.name+ ' has been added to the Friends List</h3>')
     })
       
        
