@@ -115,7 +115,10 @@ var perfectPhoto = '';
 
             }
         }
-        // console.log(match)
+        compare.splice('')
+        sum=0;
+
+        console.log(match)
         perfectName=match.freindNam;
         perfectPhoto=match.urlLink
     //    console.log(compare)
