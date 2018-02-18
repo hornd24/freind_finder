@@ -1,56 +1,21 @@
 Freind FInder
-A app to find the perfect freind it was used to learn the baisics of handlebars.js.
+A app to find the perfect freind. You can also add a add new friend as well. A simple survey is the algorthum that takes place to calculate the results right now the freinds are in an arry in the future it will have a sql database to hold them. 
 
 Getting Started
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.Clone the Repository to your machine and npm install or yarn and then yarn start or npm start to run the app.
 
 Prerequisites
-What things you need to install the software and how to install them
-
-Give examples
-Installing
-A step by step series of examples that tell you have to get a development env running
-
-Say what the step will be
-
-Give the example
-And repeat
-
-until finished
-End with an example of getting some data out of the system or using it for a little demo
-
-Running the tests
-Explain how to run the automated tests for this system
-
-Break down into end to end tests
-Explain what these tests test and why
-
-Give an example
-And coding style tests
-Explain what these tests test and why
-
-Give an example
-Deployment
-Add additional notes about how to deploy this on a live system
+This app uses node.js to run you will need to dowload node to run this app on your computer.
 
 Built With
-Dropwizard - The web framework used
-Maven - Dependency Management
-ROME - Used to generate RSS Feeds
-Contributing
-Please read CONTRIBUTING.md for details on our code of conduct, and the process for submitting pull requests to us.
-
-Versioning
-We use SemVer for versioning. For the versions available, see the tags on this repository.
+Node.js
+HTML
+Bootstap
+Javascript
 
 Authors
-Billie Thompson - Initial work - PurpleBooth
-See also the list of contributors who participated in this project.
+David Horn
 
 License
 This project is licensed under the MIT License - see the LICENSE.md file for details
 
-Acknowledgments
-Hat tip to anyone who's code was used
-Inspiration
-etc

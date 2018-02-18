@@ -19,22 +19,7 @@ questions:[5,5,5,5,3,2,4,5,3,2,5]
 },
 ]
 
-// I enjoy meeting new people
 
-// I'm easily disappointed
-// I enjoy trying out new activities.
-// I am nervous before big events
-
-// I consider other people’s feelings.
-
-// I get offended easily.
-
-// I am spontaneous.
-
-// In a discussion, facts should be more important then there feelings.
-
-// I like dark humor
-// I feel more energetic after spending time with a group of people.
 var express = require("express");
 
 var bodyParser = require("body-parser");
