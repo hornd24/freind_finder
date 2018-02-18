@@ -1,4 +1,4 @@
-Freind FInder
+Freind Finder
 A app to find the perfect freind. You can also add a add new friend as well. A simple survey is the algorthum that takes place to calculate the results right now the freinds are in an arry in the future it will have a sql database to hold them. 
 
 Getting Started
